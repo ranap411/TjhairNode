@@ -40,7 +40,7 @@ app.use(function(err, req, res, next) {
 
 var port = process.env.PORT || 4000;
 app.listen(port , ()=>{
-  console.log('server is running on : ',port);
+  console.log('server is running on the PORT :',port);
 });
 
 module.exports = app;
