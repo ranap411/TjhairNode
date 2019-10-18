@@ -4,7 +4,8 @@ var mongo = require('mongodb').MongoClient;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  MongoClient.connect("mongodb://localhost:27017/test", function(err, db) {
+  console.log('server get called : ');
+  mongo.connect("mongodb://localhost:27017/test", function(err, db) {
     if (err) next
     db
       .collection("users")
