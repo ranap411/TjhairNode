@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       .find()
       .toArray(function(err, result) {
         if (err) throw err;
-
+        console.log('Server response from mongo : ',result);
         res.json(result)
       });
   });
