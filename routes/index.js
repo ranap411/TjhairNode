@@ -7,14 +7,7 @@ router.get('/', function(req, res, next) {
   console.log('server get called : ');
   mongo.connect("mongodb://localhost:27017/test", function(err, db) {
     if (err) next
-    db
-      .collection("users")
-      .find()
-      .toArray(function(err, result) {
-        if (err) throw err;
-        console.log('Server response from mongo : ',result);
-        res.json(result)
-      });
+    res.send('Connecting to db');
   });
 });
 
