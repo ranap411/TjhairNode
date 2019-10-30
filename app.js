@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var connection = require('./routes/dbConnection');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,9 +39,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var port = process.env.PORT||8080;
-app.listen(port ,'0.0.0.0', ()=>{
-  console.log(':=) server is running on the PORT :',port);
+var port = process.env.PORT||4000;
+connection.connect(()=>{
+  app.listen(port , ()=>{
+    console.log(':=) server is running on the PORT :',port);
+  });
 });
-
 module.exports = app;
