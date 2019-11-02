@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
   console.log('Server gets called :',req.body);
   connection.get().collection('Tjhair_Users').findOne(req.body)
   .then((result)=>{
-    console.log('request from data base : '+result);
+    console.log('request from data base : '+JSON.stringify(result));
     if(result !=null){
       res.json(result);
     }else{
